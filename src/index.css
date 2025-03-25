@@ -128,7 +128,7 @@
   }
   
   .pirate-message {
-    @apply bg-pirate-parchment border border-pirate-brown/20 mr-auto;
+    @apply bg-pirate-parchment border border-pirate-brown/20 mr-auto dark:text-pirate-midnight;
   }
   
   .scroll-container {

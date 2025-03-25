@@ -31,7 +31,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isUser, timestam
       
       <div className={cn(
         "message-bubble relative group",
-        isUser ? "user-message" : "pirate-message"
+        isUser ? "user-message" : "pirate-message dark:bg-pirate-parchment/90 dark:text-pirate-midnight"
       )}>
         <p className="whitespace-pre-wrap break-words">{message}</p>
         
