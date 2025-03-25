@@ -1,4 +1,3 @@
-
 // Pirate dictionary for word translations
 const pirateDictionary: Record<string, string> = {
   // Pronouns
@@ -49,7 +48,6 @@ const pirateDictionary: Record<string, string> = {
   "home": "port",
   "house": "shanty",
   "boat": "ship",
-  "ship": "vessel",
   "car": "land vessel",
   "sword": "cutlass",
   "gun": "flintlock",
@@ -205,13 +203,11 @@ const pirateDictionary: Record<string, string> = {
   "sail": "canvas",
   "captain": "cap'n",
   "sailor": "seadog",
-  "navigate": "chart course",
   "direction": "bearin'",
   "north": "nor'",
   "south": "sou'",
   "east": "east'ard",
   "west": "west'ard",
-  "navigate": "find bearings",
   "compass": "guide needle",
   "wind": "gale",
   "storm": "tempest",
@@ -262,7 +258,6 @@ const pirateDictionary: Record<string, string> = {
   "weak": "lily-livered",
   "brave": "bold",
   "cowardly": "yellow-bellied",
-  "friend": "matey",
   "enemy": "scurvy dog",
   "stranger": "landlubber",
   "foreigner": "foreign swab",
@@ -275,19 +270,14 @@ const pirateDictionary: Record<string, string> = {
   "small": "wee",
   "big": "hulking",
   "large": "grand",
-  "happy": "merry",
   "angry": "in a foul temper",
   "smart": "clever",
   "stupid": "addled",
   "crazy": "touched in the head",
   "thief": "bilge rat",
-  "steal": "plunder",
   "rob": "pillage",
-  "kill": "dispatch",
-  "fight": "scrap",
   "attack": "board",
   "defend": "stand ground",
-  "run": "flee",
   "hide": "lay low",
   "search": "hunt",
   "find": "discover",
@@ -343,7 +333,6 @@ const pirateDictionary: Record<string, string> = {
   "money": "coins",
   "cash": "loot",
   "credit card": "magic money card",
-  "car": "land ship",
   "bus": "land galleon",
   "train": "iron horse",
   "airplane": "flying ship",
@@ -353,6 +342,23 @@ const pirateDictionary: Record<string, string> = {
   "weekend": "time off watch",
   "monday": "back to work day",
   "friday": "freedom day",
+  
+  // Added nautical navigation terms
+  "chart course": "plot the bearings",
+  "navigate safely": "sail true",
+  "find position": "take bearings",
+  "storm warning": "tempest alert",
+  "rough seas": "angry waves",
+  "calm waters": "peaceful depths",
+  "deep ocean": "bottomless blue",
+  "shallow waters": "treacherous shallows",
+  "coral reef": "treasure garden",
+  "sea monster": "kraken",
+  "mermaid": "siren",
+  "lighthouse": "beacon tower",
+  "shore line": "land's edge",
+  "tidal wave": "wall o' water",
+  "whirlpool": "devil's cauldron"
 };
 
 // Pirate interjections to randomly add
