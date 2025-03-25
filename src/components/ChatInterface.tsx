@@ -28,6 +28,53 @@ const ChatInterface: React.FC = () => {
   const [selectedPirateDialect, setSelectedPirateDialect] = useState<'caribbean' | 'golden-age' | 'blackbeard'>('caribbean');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Pirate conversation additions
+  const pirateResponses = [
+    "Arr, that be interestin'! Tell me more, matey!",
+    "Ye speak with wisdom beyond yer years, landlubber!",
+    "By Davy Jones' locker, that reminds me of me adventures in the Caribbean!",
+    "Blow me down! I never thought about it that way before!",
+    "That be soundin' like somethin' a navy dog would say! Ha!",
+    "Ye got the makin's of a fine pirate, ye do!",
+    "I once sailed those very waters ye speak of!",
+    "Shiver me timbers! Ye've got quite the story there!",
+    "Ye know, that reminds me of me days sailin' under Captain Flint!",
+    "Avast! Ye've given this old sea dog somethin' to ponder!",
+    "Yarr! I've seen many strange things on the high seas, but never that!",
+    "Pass the grog and tell me more o' yer tale!",
+    "If me crew heard ye talkin' like that, they'd make ye walk the plank!"
+  ];
+
+  const getPirateResponse = (userMessage: string): string => {
+    // Simple evaluation of user message to give a more contextual response
+    const lowercaseMsg = userMessage.toLowerCase();
+    
+    // If user message is a question, answer with a pirate explanation
+    if (lowercaseMsg.endsWith('?')) {
+      return `Arr, that be a fine question! ${translateToPirate(userMessage, selectedPirateDialect)}`;
+    }
+    
+    // If user message mentions sea, ocean, ship, etc. respond with a sea story
+    if (lowercaseMsg.includes('sea') || lowercaseMsg.includes('ocean') || 
+        lowercaseMsg.includes('ship') || lowercaseMsg.includes('sail')) {
+      return `Ye speak of the sea! I've sailed the seven seas for many a year. ${translateToPirate(userMessage, selectedPirateDialect)}`;
+    }
+    
+    // If message is short, add more pirate banter
+    if (userMessage.split(' ').length < 5) {
+      const randomResponse = pirateResponses[Math.floor(Math.random() * pirateResponses.length)];
+      return `${randomResponse} ${translateToPirate(userMessage, selectedPirateDialect)}`;
+    }
+    
+    // Standard translation with occasional pirate wisdom
+    if (Math.random() > 0.7) {
+      const randomResponse = pirateResponses[Math.floor(Math.random() * pirateResponses.length)];
+      return `${randomResponse} And to respond to ye: ${translateToPirate(userMessage, selectedPirateDialect)}`;
+    }
+    
+    return translateToPirate(userMessage, selectedPirateDialect);
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -53,10 +100,10 @@ const ChatInterface: React.FC = () => {
     
     // Simulate processing delay
     setTimeout(() => {
-      // Add pirate response
+      // Add pirate response with enhanced communication
       const pirateResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: translateToPirate(userMessage.text, selectedPirateDialect),
+        text: getPirateResponse(userMessage.text),
         isUser: false,
         timestamp: new Date(),
       };
@@ -88,7 +135,7 @@ const ChatInterface: React.FC = () => {
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between px-4 py-3 border-b">
-        <h2 className="text-xl font-semibold">Pirate Translator</h2>
+        <h2 className="text-xl font-semibold">Pirate Conversation</h2>
         <div className="flex items-center gap-2">
           <select 
             className="bg-background border border-input rounded px-2 py-1 text-sm"
