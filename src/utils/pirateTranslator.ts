@@ -191,7 +191,168 @@ const pirateDictionary: Record<string, string> = {
   "got": "were gettin'",
   "make": "be makin'",
   "makes": "be makin'",
-  "made": "were makin'"
+  "made": "were makin'",
+  
+  // Enhanced Nautical Terms
+  "ocean": "high seas",
+  "sea": "briny deep",
+  "beach": "shore",
+  "island": "isle",
+  "map": "chart",
+  "port": "harbor",
+  "harbor": "safe haven",
+  "anchor": "drop iron",
+  "sail": "canvas",
+  "captain": "cap'n",
+  "sailor": "seadog",
+  "navigate": "chart course",
+  "direction": "bearin'",
+  "north": "nor'",
+  "south": "sou'",
+  "east": "east'ard",
+  "west": "west'ard",
+  "navigate": "find bearings",
+  "compass": "guide needle",
+  "wind": "gale",
+  "storm": "tempest",
+  "rain": "squall",
+  "lightning": "sky fire",
+  "crew": "hands",
+  "team": "crew",
+  "group": "band o' brigands",
+  "leader": "cap'n",
+  "boss": "admiral",
+  "manager": "quartermaster",
+  "police": "navy dogs",
+  "law": "code",
+  "rules": "articles",
+  "prison": "brig",
+  "jail": "the hold",
+  "alcohol": "grog",
+  "drunk": "three sheets to the wind",
+  "knife": "dirk",
+  "flag": "colors",
+  "bathroom": "head",
+  "toilet": "head",
+  "bed": "hammock",
+  "sleep": "catch some shut-eye",
+  "sleeping": "catchin' some shut-eye",
+  "slept": "caught some shut-eye",
+  "rope": "line",
+  "ladder": "Jacob's ladder",
+  "stairs": "companionway",
+  "floor": "deck",
+  "wall": "bulkhead",
+  "ceiling": "overhead",
+  "room": "cabin",
+  "kitchen": "galley",
+  "cook": "ship's cook",
+  "doctor": "sawbones",
+  "surgeon": "sawbones",
+  "problem": "trouble",
+  "issue": "pickle",
+  "difficulty": "rough waters",
+  "easy": "smooth sailin'",
+  "hard": "tough as old rope",
+  "impossible": "not even with the wind at yer back",
+  "possible": "within reach",
+  "fast": "fleet",
+  "slow": "dragging anchor",
+  "strong": "sturdy",
+  "weak": "lily-livered",
+  "brave": "bold",
+  "cowardly": "yellow-bellied",
+  "friend": "matey",
+  "enemy": "scurvy dog",
+  "stranger": "landlubber",
+  "foreigner": "foreign swab",
+  "rich": "flush with doubloons",
+  "poor": "without a copper to yer name",
+  "beautiful": "fair",
+  "ugly": "hard on the eyes",
+  "old": "long in the tooth",
+  "young": "greenhorn",
+  "small": "wee",
+  "big": "hulking",
+  "large": "grand",
+  "happy": "merry",
+  "angry": "in a foul temper",
+  "smart": "clever",
+  "stupid": "addled",
+  "crazy": "touched in the head",
+  "thief": "bilge rat",
+  "steal": "plunder",
+  "rob": "pillage",
+  "kill": "dispatch",
+  "fight": "scrap",
+  "attack": "board",
+  "defend": "stand ground",
+  "run": "flee",
+  "hide": "lay low",
+  "search": "hunt",
+  "find": "discover",
+  "lose": "misplace",
+  "win": "triumph",
+  "defeated": "scuppered",
+  "victory": "conquest",
+  "help": "lend a hand",
+  "computer": "magic box",
+  "phone": "talking device",
+  "internet": "the seven digital seas",
+  "website": "digital port",
+  "email": "message in a digital bottle",
+  "password": "secret code",
+  "login": "board",
+  "download": "haul aboard",
+  "upload": "send off",
+  "app": "treasure map",
+  "program": "contraption",
+  "bug": "curse",
+  "error": "mishap",
+  "crash": "wreck",
+  "fix": "repair",
+  "update": "refit",
+  "version": "incarnation",
+  "data": "loot",
+  "information": "intelligence",
+  "game": "diversion",
+  "video": "moving picture",
+  "photo": "portrait",
+  "camera": "picture box",
+  "music": "shanty",
+  "song": "tune",
+  "movie": "tale",
+  "television": "magic picture box",
+  "radio": "squawk box",
+  "meeting": "parley",
+  "conference": "grand parley",
+  "office": "quarters",
+  "desk": "chart table",
+  "chair": "seat",
+  "table": "mess",
+  "coffee": "black brew",
+  "tea": "leaf water",
+  "breakfast": "morning rations",
+  "lunch": "midday rations",
+  "dinner": "evening rations",
+  "restaurant": "mess hall",
+  "store": "trading post",
+  "shop": "merchant",
+  "mall": "market",
+  "bank": "treasure house",
+  "money": "coins",
+  "cash": "loot",
+  "credit card": "magic money card",
+  "car": "land ship",
+  "bus": "land galleon",
+  "train": "iron horse",
+  "airplane": "flying ship",
+  "airport": "flying ship dock",
+  "vacation": "shore leave",
+  "holiday": "day of revelry",
+  "weekend": "time off watch",
+  "monday": "back to work day",
+  "friday": "freedom day",
 };
 
 // Pirate interjections to randomly add
@@ -222,6 +383,29 @@ const pirateInterjections = [
   "Prepare to be boarded!",
   "Swash me buckles!",
   "Walk the plank!",
+  "Sink me!",
+  "Strike the colors!",
+  "Man the capstan!",
+  "Hoist the mizzen!",
+  "Keelhaul the lot of ye!",
+  "Belay that talk!",
+  "What in the Kraken's name!",
+  "Thunder and lightning!",
+  "Well blow me down!",
+  "Fetch me cutlass!",
+  "By Neptune's trident!",
+  "Great balls of fire!",
+  "Slap me thrice!",
+  "Blisterin' barnacles!",
+  "Blister me barnacles!",
+  "By the Devil's teeth!",
+  "Clear the deck!",
+  "Cursed be the seven seas!",
+  "Sink me with a cannonball!",
+  "By the Grand Line!",
+  "Blast me britches!",
+  "Begad and begory!",
+  "By Davy Jones himself!",
 ];
 
 // Pirate endings to randomly add
@@ -245,8 +429,61 @@ const pirateEndings = [
   "mark my words!",
   "or strike me down!",
   "I'll be bound!",
-  "and there be no doubt!"
+  "and there be no doubt!",
+  "so help me Neptune!",
+  "and that's me final word!",
+  "blast me barnacles!",
+  "I swear on me wooden leg!",
+  "if I ever saw one!",
+  "or feed me to the sharks!",
+  "or I'm the Flying Dutchman!",
+  "or I'll be keelhauled!",
+  "so says I!",
+  "on me mother's grave!",
 ];
+
+// Different pirate dialect types
+type PirateDialect = 'caribbean' | 'golden-age' | 'blackbeard';
+
+// Dialect-specific words
+const dialectWords: Record<PirateDialect, Record<string, string>> = {
+  'caribbean': {
+    "hello": "ahoy there",
+    "gold": "Spanish doubloons",
+    "ship": "galleon",
+    "captain": "el capitán",
+    "rum": "Caribbean grog",
+    "treasure": "Spanish gold",
+    "island": "tropical isle",
+    "sailor": "buccaneer",
+    "friend": "compadre",
+    "yes": "aye, mon",
+  },
+  'golden-age': {
+    "hello": "hail and well met",
+    "gold": "pieces of eight",
+    "ship": "man o' war",
+    "captain": "commodore",
+    "rum": "finest spirits",
+    "treasure": "king's ransom",
+    "island": "sovereign isle",
+    "sailor": "jack tar",
+    "friend": "trusted salt",
+    "yes": "indeed so",
+  },
+  'blackbeard': {
+    "hello": "fear me, if ye be wise",
+    "gold": "devil's coin",
+    "ship": "fear bringer",
+    "captain": "master of the deep",
+    "rum": "dark spirits",
+    "treasure": "blood money",
+    "island": "forsaken land",
+    "sailor": "damned soul",
+    "friend": "temporary ally",
+    "yes": "it shall be so",
+  }
+};
 
 // Simple text preprocessing
 const preprocessText = (text: string): string => {
@@ -254,8 +491,15 @@ const preprocessText = (text: string): string => {
 };
 
 // Translate a word based on the dictionary
-const translateWord = (word: string): string => {
+const translateWord = (word: string, dialect: PirateDialect = 'caribbean'): string => {
   const lowerWord = word.toLowerCase().replace(/[^\w']/g, '');
+  
+  // Check dialect-specific translation first
+  if (dialectWords[dialect][lowerWord]) {
+    return dialectWords[dialect][lowerWord];
+  }
+  
+  // Fall back to standard pirate dictionary
   return pirateDictionary[lowerWord] || word;
 };
 
@@ -288,17 +532,26 @@ const applyPirateGrammar = (text: string): string => {
   text = text.replace(/\bof\b/g, "o'");
   text = text.replace(/\bto\b/g, "t'");
   
+  // Change "er" endings to "a" (pirate dialect)
+  text = text.replace(/er\b/g, "a");
+  
+  // Change "th" to "t" in many words
+  text = text.replace(/\bth/g, "t'");
+  
+  // Change "you" at the beginning of questions to "ye"
+  text = text.replace(/\byou\b/g, "ye");
+  
   return text;
 };
 
-// Main translation function
-export const translateToPirate = (text: string): string => {
+// Main translation function with dialect support
+export const translateToPirate = (text: string, dialect: PirateDialect = 'caribbean'): string => {
   const preprocessedText = preprocessText(text);
   
   // Translate words
   let translatedText = preprocessedText
     .split(' ')
-    .map(word => translateWord(word))
+    .map(word => translateWord(word, dialect))
     .join(' ');
   
   // Apply pirate grammar transformations
@@ -328,4 +581,53 @@ export const getRandomPiratePhrase = (): string => {
   ];
   
   return phrases[Math.floor(Math.random() * phrases.length)];
+};
+
+// Pirate joke generator
+const pirateJokes = [
+  "What's a pirate's favorite letter? Ye might think it's R, but his true love be the C!",
+  "How much did the pirate pay for his hook and peg? An arm and a leg!",
+  "Why don't pirates shower before they walk the plank? Because they'll just wash up on shore later!",
+  "What's a pirate's favorite type of fish? A gold-fish!",
+  "Why are pirates terrible singers? Because they can't hit the high seas!",
+  "Why does it take pirates so long to learn the alphabet? Because they spend years at C!",
+  "What do you call a pirate with two eyes, two hands, and two legs? A beginner.",
+  "How did the pirate get his Jolly Roger so cheap? He bought it on sail!",
+  "Why do pirates carry their treasure maps in bottles? To keep them dry... it's just common sense!",
+  "Why don't pirates go to strip clubs? Because they already have all the booty!",
+  "What did the pirate say on his 80th birthday? Aye Matey!",
+  "What's a pirate's favorite programming language? R!",
+  "How do pirates prefer to communicate? Aye to aye!",
+  "What's a pirate's least favorite vegetable? Leeks!",
+  "Why did the pirate buy an eye patch? Because he couldn't afford an iPad!",
+  "What lies at the bottom of the ocean and twitches? A nervous wreck!",
+  "Why don't pirates go to boxing matches? They don't like getting hooked!",
+  "What's a pirate's favorite car? A Yarrrrrris!",
+  "Why couldn't the pirate play cards? Because he was standing on the deck!",
+  "How do pirates know that they are pirates? They think, therefore they ARRRR!"
+];
+
+export const getRandomPirateJoke = (): string => {
+  return pirateJokes[Math.floor(Math.random() * pirateJokes.length)];
+};
+
+// Pirate name generator
+const pirateFirstNames = [
+  "Captain", "Blackbeard", "Redbeard", "One-Eyed", "Peg-Leg", "Hook-Hand", "Salty", "Scurvy", "Barnacle", 
+  "Jolly", "Crusty", "Scallywag", "Cutlass", "Foul", "Dirty", "Bilge", "Stinky", "Grumpy", "Mad", "Crazy",
+  "Bloody", "Filthy", "Rusty", "Scarred", "Gnarled", "Toothless", "Rotten", "Mangy", "Wild", "Fierce",
+  "Surly", "Sneaky", "Crafty", "Savage", "Cruel", "Rough", "Scoundrel", "Corsair", "Buccaneer", "Marauder"
+];
+
+const pirateLastNames = [
+  "Bones", "Morgan", "Silver", "Flint", "Kidd", "Sparrow", "Beard", "Hook", "Patch", "Roger",
+  "Blackheart", "Deadwood", "Grimbeard", "Darkwater", "Ironhook", "Gold", "Doubloon", "Plunder", "Cutthroat", "Maroon",
+  "Seadog", "Bloodsail", "Stormbringer", "Kraken", "Shark", "Stormchaser", "Squid", "Barnacle", "Cannonball", "Gunpowder",
+  "Tide", "Wave", "Reef", "Coast", "Anchor", "Sail", "Mast", "Keel", "Deck", "Hull"
+];
+
+export const generatePirateName = (): string => {
+  const firstName = pirateFirstNames[Math.floor(Math.random() * pirateFirstNames.length)];
+  const lastName = pirateLastNames[Math.floor(Math.random() * pirateLastNames.length)];
+  return `${firstName} ${lastName}`;
 };

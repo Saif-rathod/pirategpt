@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import PirateAvatar from './PirateAvatar';
+import MessageReaction, { ReactionType } from './MessageReaction';
 
 interface MessageBubbleProps {
   message: string;
@@ -13,6 +14,12 @@ interface MessageBubbleProps {
 }
 
 const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isUser, timestamp }) => {
+  const [reactions, setReactions] = useState<Record<ReactionType, { count: number; reacted: boolean }>>({
+    skull: { count: 0, reacted: false },
+    ship: { count: 0, reacted: false },
+    flag: { count: 0, reacted: false }
+  });
+  
   const handleCopy = () => {
     navigator.clipboard.writeText(message);
     toast.success('Copied to clipboard!');
@@ -20,6 +27,26 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isUser, timestam
   
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+  
+  const handleReaction = (type: ReactionType) => {
+    setReactions(prev => {
+      const newReactions = { ...prev };
+      if (newReactions[type].reacted) {
+        // User is unreacting
+        newReactions[type] = {
+          count: Math.max(0, newReactions[type].count - 1),
+          reacted: false
+        };
+      } else {
+        // User is reacting
+        newReactions[type] = {
+          count: newReactions[type].count + 1,
+          reacted: true
+        };
+      }
+      return newReactions;
+    });
   };
 
   return (
@@ -35,8 +62,12 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isUser, timestam
       )}>
         <p className="whitespace-pre-wrap break-words">{message}</p>
         
-        <div className="flex items-center justify-between mt-2 opacity-60 text-xs">
-          <span>{formatTime(timestamp)}</span>
+        <div className="flex flex-col mt-2">
+          <div className="flex items-center justify-between opacity-60 text-xs">
+            <span>{formatTime(timestamp)}</span>
+          </div>
+          
+          {!isUser && <MessageReaction reactions={reactions} onReact={handleReaction} />}
         </div>
         
         <Button

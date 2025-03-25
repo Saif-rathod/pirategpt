@@ -6,6 +6,9 @@ import { Input } from '@/components/ui/input';
 import { translateToPirate, getRandomPiratePhrase } from '@/utils/pirateTranslator';
 import MessageBubble from './MessageBubble';
 import { toast } from 'sonner';
+import PirateJokeGenerator from './PirateJokeGenerator';
+import PirateNameGenerator from './PirateNameGenerator';
+import ShareableSnippet from './ShareableSnippet';
 
 interface Message {
   id: string;
@@ -25,6 +28,8 @@ const ChatInterface: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [selectedPirateDialect, setSelectedPirateDialect] = useState<'caribbean' | 'golden-age' | 'blackbeard'>('caribbean');
+  const [lastPirateMessage, setLastPirateMessage] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -34,11 +39,82 @@ const ChatInterface: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+  
+  useEffect(() => {
+    // Set the last pirate message whenever messages change
+    const pirateMessages = messages.filter(m => !m.isUser);
+    if (pirateMessages.length > 0) {
+      setLastPirateMessage(pirateMessages[pirateMessages.length - 1].text);
+    }
+  }, [messages]);
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
     
-    // Add user message
+    // Special commands
+    if (inputValue.toLowerCase().includes("/joke")) {
+      // User wants a joke
+      const userMessage: Message = {
+        id: Date.now().toString(),
+        text: inputValue,
+        isUser: true,
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, userMessage]);
+      setInputValue('');
+      setIsTyping(true);
+      
+      // Simulate processing delay
+      setTimeout(() => {
+        import('@/utils/pirateTranslator').then(({ getRandomPirateJoke }) => {
+          const jokeResponse: Message = {
+            id: (Date.now() + 1).toString(),
+            text: `Here be a joke for ye: ${getRandomPirateJoke()}`,
+            isUser: false,
+            timestamp: new Date(),
+          };
+          
+          setMessages(prev => [...prev, jokeResponse]);
+          setIsTyping(false);
+        });
+      }, 1000);
+      
+      return;
+    }
+    
+    if (inputValue.toLowerCase().includes("/name")) {
+      // User wants a pirate name
+      const userMessage: Message = {
+        id: Date.now().toString(),
+        text: inputValue,
+        isUser: true,
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, userMessage]);
+      setInputValue('');
+      setIsTyping(true);
+      
+      // Simulate processing delay
+      setTimeout(() => {
+        import('@/utils/pirateTranslator').then(({ generatePirateName }) => {
+          const nameResponse: Message = {
+            id: (Date.now() + 1).toString(),
+            text: `Arr, I shall call ye "${generatePirateName()}"! A fine pirate name if I ever heard one!`,
+            isUser: false,
+            timestamp: new Date(),
+          };
+          
+          setMessages(prev => [...prev, nameResponse]);
+          setIsTyping(false);
+        });
+      }, 1000);
+      
+      return;
+    }
+    
+    // Regular translation
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputValue,
@@ -55,7 +131,7 @@ const ChatInterface: React.FC = () => {
       // Add pirate response
       const pirateResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: translateToPirate(userMessage.text),
+        text: translateToPirate(userMessage.text, selectedPirateDialect),
         isUser: false,
         timestamp: new Date(),
       };
@@ -88,14 +164,25 @@ const ChatInterface: React.FC = () => {
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between px-4 py-3 border-b">
         <h2 className="text-xl font-semibold">Pirate Translator</h2>
-        <Button 
-          onClick={clearChat} 
-          variant="ghost" 
-          size="icon"
-          className="text-muted-foreground hover:text-destructive"
-        >
-          <Trash2 className="h-5 w-5" />
-        </Button>
+        <div className="flex items-center gap-2">
+          <select 
+            className="bg-background border border-input rounded px-2 py-1 text-sm"
+            value={selectedPirateDialect}
+            onChange={(e) => setSelectedPirateDialect(e.target.value as any)}
+          >
+            <option value="caribbean">Caribbean Pirate</option>
+            <option value="golden-age">Golden Age Pirate</option>
+            <option value="blackbeard">Blackbeard Style</option>
+          </select>
+          <Button 
+            onClick={clearChat} 
+            variant="ghost" 
+            size="icon"
+            className="text-muted-foreground hover:text-destructive"
+          >
+            <Trash2 className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
       
       <div className="flex-1 overflow-y-auto px-4 py-4 scroll-container fade-mask">
@@ -117,6 +204,17 @@ const ChatInterface: React.FC = () => {
         )}
         
         <div ref={messagesEndRef}></div>
+        
+        {/* Extra features */}
+        {messages.length > 1 && (
+          <div className="mt-6 space-y-4">
+            <ShareableSnippet message={lastPirateMessage} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <PirateJokeGenerator />
+              <PirateNameGenerator />
+            </div>
+          </div>
+        )}
       </div>
       
       <div className="px-4 py-3 border-t bg-background/95 backdrop-blur-sm">
@@ -125,7 +223,7 @@ const ChatInterface: React.FC = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type your message here..."
+            placeholder="Type your message here... (try /joke or /name)"
             className="flex-1 bg-background/50 backdrop-blur-sm"
           />
           <Button 
